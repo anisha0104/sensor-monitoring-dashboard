@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
 from sensors.simulator import SensorSimulator
 from sensors.thresholds import get_status
@@ -13,7 +13,7 @@ initialize_database()
 
 @app.route("/")
 def home():
-    return "Sensor Monitoring Dashboard API is running!"
+    return render_template("index.html")
 
 
 @app.route("/api/sensors")

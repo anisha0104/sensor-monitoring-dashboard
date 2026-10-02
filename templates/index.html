@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sensor Monitoring Console</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <!-- TOP BAR -->
+
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="brand-mark">◈</div>
+
+            <div>
+                <h1>Sensor<span>Core</span></h1>
+                <p>REAL-TIME MONITORING CONSOLE</p>
+            </div>
+        </div>
+
+        <div class="connection">
+            <span class="pulse"></span>
+            <div>
+                <strong>LIVE CONNECTION</strong>
+                <small>Simulation Engine Active</small>
+            </div>
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                SYSTEM OVERVIEW
+            </div>
+
+            <h2>
+                Environmental &amp;<br>
+                Electrical Monitoring
+            </h2>
+
+            <p>
+                Real-time telemetry from six simulated engineering
+                sensors with automated threshold detection.
+            </p>
+
+            <div class="hero-meta">
+
+                <div>
+                    <span>UPDATE RATE</span>
+                    <strong>3 SEC</strong>
+                </div>
+
+                <div>
+                    <span>SENSORS</span>
+                    <strong id="sensors-online">6 / 6</strong>
+                </div>
+
+                <div>
+                    <span>LAST SYNC</span>
+                    <strong id="last-updated">--</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SYSTEM HEALTH -->
+
+        <div class="health-orb">
+
+            <div class="orb-ring ring-one"></div>
+            <div class="orb-ring ring-two"></div>
+
+            <div class="orb-center">
+
+                <span>SYSTEM</span>
+
+                <strong id="overall-status">
+                    NORMAL
+                </strong>
+
+                <small>HEALTH</small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SENSOR SECTION -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <div>
+                <span class="eyebrow">TELEMETRY</span>
+                <h2>Live Sensor Network</h2>
+            </div>
+
+            <span class="live-label">
+                ● LIVE DATA
+            </span>
+
+        </div>
+
+
+        <div class="sensor-grid">
+
+
+            <div class="sensor-card temperature">
+                <div class="card-top">
+                    <span class="sensor-icon">◉</span>
+                    <span id="temperature-status"
+                          class="status normal">
+                        NORMAL
+                    </span>
+                </div>
+
+                <p>Temperature</p>
+
+                <div class="reading">
+                    <strong id="temperature">--</strong>
+                    <span>°C</span>
+                </div>
+
+                <div class="meter">
+                    <span></span>
+                </div>
+            </div>
+
+
+            <div class="sensor-card humidity">
+                <div class="card-top">
+                    <span class="sensor-icon">◌</span>
+                    <span id="humidity-status"
+                          class="status normal">
+                        NORMAL
+                    </span>
+                </div>
+
+                <p>Humidity</p>
+
+                <div class="reading">
+                    <strong id="humidity">--</strong>
+                    <span>%</span>
+                </div>
+
+                <div class="meter">
+                    <span></span>
+                </div>
+            </div>
+
+
+            <div class="sensor-card voltage">
+                <div class="card-top">
+                    <span class="sensor-icon">ϟ</span>
+                    <span id="voltage-status"
+                          class="status normal">
+                        NORMAL
+                    </span>
+                </div>
+
+                <p>Voltage</p>
+
+                <div class="reading">
+                    <strong id="voltage">--</strong>
+                    <span>V</span>
+                </div>
+
+                <div class="meter">
+                    <span></span>
+                </div>
+            </div>
+
+
+            <div class="sensor-card current">
+                <div class="card-top">
+                    <span class="sensor-icon">⟋</span>
+                    <span id="current-status"
+                          class="status normal">
+                        NORMAL
+                    </span>
+                </div>
+
+                <p>Current</p>
+
+                <div class="reading">
+                    <strong id="current">--</strong>
+                    <span>A</span>
+                </div>
+
+                <div class="meter">
+                    <span></span>
+                </div>
+            </div>
+
+
+            <div class="sensor-card light">
+                <div class="card-top">
+                    <span class="sensor-icon">✦</span>
+                    <span id="light-status"
+                          class="status normal">
+                        NORMAL
+                    </span>
+                </div>
+
+                <p>Light Intensity</p>
+
+                <div class="reading">
+                    <strong id="light">--</strong>
+                    <span>lux</span>
+                </div>
+
+                <div class="meter">
+                    <span></span>
+                </div>
+            </div>
+
+
+            <div class="sensor-card pressure">
+                <div class="card-top">
+                    <span class="sensor-icon">◈</span>
+                    <span id="pressure-status"
+                          class="status normal">
+                        NORMAL
+                    </span>
+                </div>
+
+                <p>Pressure</p>
+
+                <div class="reading">
+                    <strong id="pressure">--</strong>
+                    <span>kPa</span>
+                </div>
+
+                <div class="meter">
+                    <span></span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SYSTEM METRICS -->
+
+    <section class="metrics">
+
+        <div class="metric-card">
+            <span>ACTIVE ALERTS</span>
+            <strong id="active-alerts">0</strong>
+            <small>Threshold monitoring</small>
+        </div>
+
+        <div class="metric-card">
+            <span>NETWORK STATUS</span>
+            <strong class="green">ONLINE</strong>
+            <small>All sensors responding</small>
+        </div>
+
+        <div class="metric-card">
+            <span>DATA STREAM</span>
+            <strong class="blue">LIVE</strong>
+            <small>Continuous telemetry</small>
+        </div>
+
+        <div class="metric-card">
+            <span>ENGINE</span>
+            <strong class="purple">SIMULATED</strong>
+            <small>Python sensor engine</small>
+        </div>
+
+    </section>
+    <section class="section alert-section">
+
+    <div class="section-title">
+
+        <div>
+            <span class="eyebrow">EVENT MONITOR</span>
+            <h2>Alert Feed</h2>
+        </div>
+
+        <span class="chart-note">
+            LIVE EVENTS
+        </span>
+
+    </div>
+
+    <div id="alert-feed" class="alert-feed">
+
+        <div class="empty-alert">
+            <span>✓</span>
+            <div>
+                <strong>No active alerts</strong>
+                <small>All monitored parameters are within normal limits.</small>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- CHARTS -->
+
+    <section class="section charts-section">
+
+        <div class="section-title">
+
+            <div>
+                <span class="eyebrow">ANALYTICS</span>
+                <h2>Telemetry Trends</h2>
+            </div>
+
+            <span class="chart-note">
+                LAST 20 READINGS
+            </span>
+
+        </div>
+
+
+        <div class="chart-grid">
+
+            <div class="chart-card large">
+                <h3>Temperature</h3>
+                <canvas id="temperatureChart"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h3>Humidity</h3>
+                <canvas id="humidityChart"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h3>Voltage</h3>
+                <canvas id="voltageChart"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h3>Current</h3>
+                <canvas id="currentChart"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h3>Light Intensity</h3>
+                <canvas id="lightChart"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h3>Pressure</h3>
+                <canvas id="pressureChart"></canvas>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+        SENSORCORE • ENGINEERING MONITORING PLATFORM
+        <span>PYTHON + FLASK + SQLITE</span>
+    </footer>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
