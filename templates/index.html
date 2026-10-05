@@ -1,45 +1,68 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Sensor Monitoring Console</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
+
 </head>
+
 
 <body>
 
 <div class="app-shell">
 
-    <!-- TOP BAR -->
+
+    <!-- =========================
+         TOP BAR
+    ========================== -->
 
     <header class="topbar">
 
         <div class="brand">
+
             <div class="brand-mark">◈</div>
 
             <div>
                 <h1>Sensor<span>Core</span></h1>
                 <p>REAL-TIME MONITORING CONSOLE</p>
             </div>
+
         </div>
 
+
         <div class="connection">
+
             <span class="pulse"></span>
+
             <div>
+
                 <strong>LIVE CONNECTION</strong>
-                <small>Simulation Engine Active</small>
+
+                <small>
+                    Simulation Engine Active
+                </small>
+
             </div>
+
         </div>
 
     </header>
 
 
-    <!-- HERO -->
+
+    <!-- =========================
+         HERO
+    ========================== -->
 
     <section class="hero">
 
@@ -49,15 +72,18 @@
                 SYSTEM OVERVIEW
             </div>
 
+
             <h2>
                 Environmental &amp;<br>
                 Electrical Monitoring
             </h2>
 
+
             <p>
                 Real-time telemetry from six simulated engineering
                 sensors with automated threshold detection.
             </p>
+
 
             <div class="hero-meta">
 
@@ -66,14 +92,20 @@
                     <strong>3 SEC</strong>
                 </div>
 
+
                 <div>
                     <span>SENSORS</span>
-                    <strong id="sensors-online">6 / 6</strong>
+                    <strong id="sensors-online">
+                        6 / 6
+                    </strong>
                 </div>
+
 
                 <div>
                     <span>LAST SYNC</span>
-                    <strong id="last-updated">--</strong>
+                    <strong id="last-updated">
+                        --
+                    </strong>
                 </div>
 
             </div>
@@ -81,12 +113,15 @@
         </div>
 
 
+
         <!-- SYSTEM HEALTH -->
 
         <div class="health-orb">
 
             <div class="orb-ring ring-one"></div>
+
             <div class="orb-ring ring-two"></div>
+
 
             <div class="orb-center">
 
@@ -105,16 +140,27 @@
     </section>
 
 
-    <!-- SENSOR SECTION -->
+
+    <!-- =========================
+         SENSOR NETWORK
+    ========================== -->
 
     <section class="section">
 
         <div class="section-title">
 
             <div>
-                <span class="eyebrow">TELEMETRY</span>
-                <h2>Live Sensor Network</h2>
+
+                <span class="eyebrow">
+                    TELEMETRY
+                </span>
+
+                <h2>
+                    Live Sensor Network
+                </h2>
+
             </div>
+
 
             <span class="live-label">
                 ● LIVE DATA
@@ -123,214 +169,957 @@
         </div>
 
 
+
         <div class="sensor-grid">
 
 
+            <!-- TEMPERATURE -->
+
             <div class="sensor-card temperature">
+
                 <div class="card-top">
-                    <span class="sensor-icon">◉</span>
+
+                    <span class="sensor-icon">
+                        ◉
+                    </span>
+
                     <span id="temperature-status"
                           class="status normal">
                         NORMAL
                     </span>
+
                 </div>
+
 
                 <p>Temperature</p>
 
+
                 <div class="reading">
-                    <strong id="temperature">--</strong>
+
+                    <strong id="temperature">
+                        --
+                    </strong>
+
                     <span>°C</span>
+
                 </div>
 
-                <div class="meter">
-                    <span></span>
+
+                <div class="meter-wrapper">
+
+                    <div class="meter-labels">
+
+                        <span>0°C</span>
+
+                        <span>
+                            Normal ≤ 35°C
+                        </span>
+
+                        <span>40°C</span>
+
+                    </div>
+
+
+                    <div class="meter">
+
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="threshold-labels">
+                        <span>NORMAL</span>
+                        <span>WARNING</span>
+                        <span>CRITICAL</span>
+                    </div>
+
                 </div>
+
             </div>
 
+            <!-- HUMIDITY -->
 
             <div class="sensor-card humidity">
+
                 <div class="card-top">
-                    <span class="sensor-icon">◌</span>
+
+                    <span class="sensor-icon">
+                        ◌
+                    </span>
+
                     <span id="humidity-status"
                           class="status normal">
                         NORMAL
                     </span>
+
                 </div>
+
 
                 <p>Humidity</p>
 
+
                 <div class="reading">
-                    <strong id="humidity">--</strong>
+
+                    <strong id="humidity">
+                        --
+                    </strong>
+
                     <span>%</span>
+
                 </div>
 
-                <div class="meter">
-                    <span></span>
+
+                <div class="meter-wrapper">
+
+                    <div class="meter-labels">
+
+                        <span>0%</span>
+
+                        <span>
+                            Normal ≤ 75%
+                        </span>
+
+                        <span>100%</span>
+
+                    </div>
+
+
+                    <div class="meter">
+
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="threshold-labels">
+
+                        <span>
+                            NORMAL
+                        </span>
+
+                        <span>
+                            WARNING
+                        </span>
+
+                        <span>
+                            CRITICAL
+                        </span>
+
+                    </div>
+
                 </div>
+
             </div>
 
 
+
+            <!-- VOLTAGE -->
+
             <div class="sensor-card voltage">
+
                 <div class="card-top">
-                    <span class="sensor-icon">ϟ</span>
+
+                    <span class="sensor-icon">
+                        ϟ
+                    </span>
+
                     <span id="voltage-status"
                           class="status normal">
                         NORMAL
                     </span>
+
                 </div>
+
 
                 <p>Voltage</p>
 
+
                 <div class="reading">
-                    <strong id="voltage">--</strong>
+
+                    <strong id="voltage">
+                        --
+                    </strong>
+
                     <span>V</span>
+
                 </div>
 
-                <div class="meter">
-                    <span></span>
+
+                <div class="meter-wrapper">
+
+                    <div class="meter-labels">
+
+                        <span>10V</span>
+
+                        <span>
+                            Normal 11–13V
+                        </span>
+
+                        <span>14V</span>
+
+                    </div>
+
+
+                    <div class="meter">
+
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="threshold-labels">
+
+                        <span>
+                            LOW
+                        </span>
+
+                        <span>
+                            NORMAL
+                        </span>
+
+                        <span>
+                            HIGH
+                        </span>
+
+                    </div>
+
                 </div>
+
             </div>
 
 
+
+            <!-- CURRENT -->
+
             <div class="sensor-card current">
+
                 <div class="card-top">
-                    <span class="sensor-icon">⟋</span>
+
+                    <span class="sensor-icon">↯</span>
+
                     <span id="current-status"
                           class="status normal">
                         NORMAL
                     </span>
+
                 </div>
+
 
                 <p>Current</p>
 
+
                 <div class="reading">
-                    <strong id="current">--</strong>
+
+                    <strong id="current">
+                        --
+                    </strong>
+
                     <span>A</span>
+
                 </div>
 
-                <div class="meter">
-                    <span></span>
+
+                <div class="meter-wrapper">
+
+                    <div class="meter-labels">
+
+                        <span>0A</span>
+
+                        <span>
+                            Normal ≤ 4A
+                        </span>
+
+                        <span>5A</span>
+
+                    </div>
+
+
+                    <div class="meter">
+
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="threshold-labels">
+
+                        <span>
+                            NORMAL
+                        </span>
+
+                        <span>
+                            WARNING
+                        </span>
+
+                        <span>
+                            CRITICAL
+                        </span>
+
+                    </div>
+
                 </div>
+
             </div>
 
 
+
+            <!-- LIGHT -->
+
             <div class="sensor-card light">
+
                 <div class="card-top">
-                    <span class="sensor-icon">✦</span>
+
+                    <span class="sensor-icon">
+                        ✦
+                    </span>
+
                     <span id="light-status"
                           class="status normal">
                         NORMAL
                     </span>
+
                 </div>
+
 
                 <p>Light Intensity</p>
 
+
                 <div class="reading">
-                    <strong id="light">--</strong>
+
+                    <strong id="light">
+                        --
+                    </strong>
+
                     <span>lux</span>
+
                 </div>
 
-                <div class="meter">
-                    <span></span>
+
+                <div class="meter-wrapper">
+
+                    <div class="meter-labels">
+
+                        <span>0</span>
+
+                        <span>
+                            Normal ≤ 900
+                        </span>
+
+                        <span>1000</span>
+
+                    </div>
+
+
+                    <div class="meter">
+
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="threshold-labels">
+
+                        <span>
+                            NORMAL
+                        </span>
+
+                        <span>
+                            WARNING
+                        </span>
+
+                        <span>
+                            CRITICAL
+                        </span>
+
+                    </div>
+
                 </div>
+
             </div>
 
 
+
+            <!-- PRESSURE -->
+
             <div class="sensor-card pressure">
+
                 <div class="card-top">
-                    <span class="sensor-icon">◈</span>
+
+                    <span class="sensor-icon">
+                        ◈
+                    </span>
+
                     <span id="pressure-status"
                           class="status normal">
                         NORMAL
                     </span>
+
                 </div>
+
 
                 <p>Pressure</p>
 
+
                 <div class="reading">
-                    <strong id="pressure">--</strong>
+
+                    <strong id="pressure">
+                        --
+                    </strong>
+
                     <span>kPa</span>
+
                 </div>
 
-                <div class="meter">
-                    <span></span>
+
+                <div class="meter-wrapper">
+
+                    <div class="meter-labels">
+
+                        <span>95</span>
+
+                        <span>
+                            Normal 97–104
+                        </span>
+
+                        <span>105</span>
+
+                    </div>
+
+
+                    <div class="meter">
+
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="threshold-labels">
+
+                        <span>
+                            LOW
+                        </span>
+
+                        <span>
+                            NORMAL
+                        </span>
+
+                        <span>
+                            HIGH
+                        </span>
+
+                    </div>
+
                 </div>
+
             </div>
+
 
         </div>
 
     </section>
 
 
-    <!-- SYSTEM METRICS -->
+
+    <!-- =========================
+         SYSTEM METRICS
+    ========================== -->
 
     <section class="metrics">
 
+
         <div class="metric-card">
+
             <span>ACTIVE ALERTS</span>
-            <strong id="active-alerts">0</strong>
-            <small>Threshold monitoring</small>
+
+            <strong id="active-alerts">
+                0
+            </strong>
+
+            <small>
+                Current threshold violations
+            </small>
+
         </div>
 
-        <div class="metric-card">
-            <span>NETWORK STATUS</span>
-            <strong class="green">ONLINE</strong>
-            <small>All sensors responding</small>
-        </div>
+
 
         <div class="metric-card">
-            <span>DATA STREAM</span>
-            <strong class="blue">LIVE</strong>
-            <small>Continuous telemetry</small>
+
+            <span>SENSORS ONLINE</span>
+
+            <strong id="metric-sensors-online">
+                6 / 6
+            </strong>
+
+            <small>
+                Connected monitoring points
+            </small>
+
         </div>
 
+
+
         <div class="metric-card">
-            <span>ENGINE</span>
-            <strong class="purple">SIMULATED</strong>
-            <small>Python sensor engine</small>
+
+            <span>SYSTEM UPTIME</span>
+
+            <strong id="system-uptime">
+                00:00:00
+            </strong>
+
+            <small>
+                Current monitoring session
+            </small>
+
         </div>
+
+
+
+        <div class="metric-card">
+
+            <span>READINGS STORED</span>
+
+            <strong id="total-readings">
+                0
+            </strong>
+
+            <small>
+                SQLite historical records
+            </small>
+
+        </div>
+
 
     </section>
+
+
+
+    <!-- =========================
+         ALERT FEED
+    ========================== -->
+
     <section class="section alert-section">
 
-    <div class="section-title">
-
-        <div>
-            <span class="eyebrow">EVENT MONITOR</span>
-            <h2>Alert Feed</h2>
-        </div>
-
-        <span class="chart-note">
-            LIVE EVENTS
-        </span>
-
-    </div>
-
-    <div id="alert-feed" class="alert-feed">
-
-        <div class="empty-alert">
-            <span>✓</span>
-            <div>
-                <strong>No active alerts</strong>
-                <small>All monitored parameters are within normal limits.</small>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-
-    <!-- CHARTS -->
-
-    <section class="section charts-section">
 
         <div class="section-title">
 
             <div>
-                <span class="eyebrow">ANALYTICS</span>
-                <h2>Telemetry Trends</h2>
+
+                <span class="eyebrow">
+                    EVENT MONITOR
+                </span>
+
+                <h2>
+                    Alert Feed
+                </h2>
+
             </div>
+
+
+            <span class="chart-note">
+                LIVE EVENTS
+            </span>
+
+        </div>
+
+
+
+        <div id="alert-feed"
+             class="alert-feed">
+
+
+            <div class="empty-alert">
+
+                <span>✓</span>
+
+                <div>
+
+                    <strong>
+                        No active alerts
+                    </strong>
+
+                    <small>
+                        All monitored parameters are within
+                        normal limits.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         STATISTICS
+    ========================== -->
+
+    <section class="section statistics-section">
+
+
+        <div class="section-title">
+
+            <div>
+
+                <span class="eyebrow">
+                    DATA ANALYTICS
+                </span>
+
+                <h2>
+                    Sensor Statistics
+                </h2>
+
+            </div>
+
+
+            <span class="chart-note">
+                HISTORICAL DATA
+            </span>
+
+        </div>
+
+
+
+        <div class="statistics-grid"
+             id="statistics-grid">
+
+
+            <!-- TEMPERATURE -->
+
+            <div class="statistics-card">
+
+                <h3>
+                    Temperature
+                </h3>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Minimum
+                    </span>
+
+                    <strong id="temperature-min">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Maximum
+                    </span>
+
+                    <strong id="temperature-max">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Average
+                    </span>
+
+                    <strong id="temperature-average">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HUMIDITY -->
+
+            <div class="statistics-card">
+
+                <h3>
+                    Humidity
+                </h3>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Minimum
+                    </span>
+
+                    <strong id="humidity-min">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Maximum
+                    </span>
+
+                    <strong id="humidity-max">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Average
+                    </span>
+
+                    <strong id="humidity-average">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- VOLTAGE -->
+
+            <div class="statistics-card">
+
+                <h3>
+                    Voltage
+                </h3>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Minimum
+                    </span>
+
+                    <strong id="voltage-min">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Maximum
+                    </span>
+
+                    <strong id="voltage-max">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Average
+                    </span>
+
+                    <strong id="voltage-average">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CURRENT -->
+
+            <div class="statistics-card">
+
+                <h3>
+                    Current
+                </h3>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Minimum
+                    </span>
+
+                    <strong id="current-min">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Maximum
+                    </span>
+
+                    <strong id="current-max">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Average
+                    </span>
+
+                    <strong id="current-average">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- LIGHT -->
+
+            <div class="statistics-card">
+
+                <h3>
+                    Light Intensity
+                </h3>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Minimum
+                    </span>
+
+                    <strong id="light-min">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Maximum
+                    </span>
+
+                    <strong id="light-max">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Average
+                    </span>
+
+                    <strong id="light-average">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRESSURE -->
+
+            <div class="statistics-card">
+
+                <h3>
+                    Pressure
+                </h3>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Minimum
+                    </span>
+
+                    <strong id="pressure-min">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Maximum
+                    </span>
+
+                    <strong id="pressure-max">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Average
+                    </span>
+
+                    <strong id="pressure-average">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TELEMETRY CHARTS
+    ========================== -->
+
+    <section class="section charts-section">
+
+
+        <div class="section-title">
+
+            <div>
+
+                <span class="eyebrow">
+                    ANALYTICS
+                </span>
+
+                <h2>
+                    Telemetry Trends
+                </h2>
+
+            </div>
+
 
             <span class="chart-note">
                 LAST 20 READINGS
@@ -339,56 +1128,112 @@
         </div>
 
 
+
         <div class="chart-grid">
 
+
             <div class="chart-card large">
-                <h3>Temperature</h3>
+
+                <h3>
+                    Temperature
+                </h3>
+
                 <canvas id="temperatureChart"></canvas>
+
             </div>
 
+
+
             <div class="chart-card">
-                <h3>Humidity</h3>
+
+                <h3>
+                    Humidity
+                </h3>
+
                 <canvas id="humidityChart"></canvas>
+
             </div>
 
+
+
             <div class="chart-card">
-                <h3>Voltage</h3>
+
+                <h3>
+                    Voltage
+                </h3>
+
                 <canvas id="voltageChart"></canvas>
+
             </div>
 
+
+
             <div class="chart-card">
-                <h3>Current</h3>
+
+                <h3>
+                    Current
+                </h3>
+
                 <canvas id="currentChart"></canvas>
+
             </div>
 
+
+
             <div class="chart-card">
-                <h3>Light Intensity</h3>
+
+                <h3>
+                    Light Intensity
+                </h3>
+
                 <canvas id="lightChart"></canvas>
+
             </div>
 
+
+
             <div class="chart-card">
-                <h3>Pressure</h3>
+
+                <h3>
+                    Pressure
+                </h3>
+
                 <canvas id="pressureChart"></canvas>
+
             </div>
+
 
         </div>
 
     </section>
 
 
-    <!-- FOOTER -->
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
     <footer>
+
         SENSORCORE • ENGINEERING MONITORING PLATFORM
-        <span>PYTHON + FLASK + SQLITE</span>
+
+        <span>
+            PYTHON + FLASK + SQLITE
+        </span>
+
     </footer>
 
+
 </div>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 
+
 </body>
+
 </html>
+```
